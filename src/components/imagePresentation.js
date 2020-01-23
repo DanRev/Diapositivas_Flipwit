@@ -10,17 +10,11 @@ const styles = theme => ({
   }
 });
 
-class PresentationMode extends Component {
+class imagePresentation extends Component {
   render() {
     const { classes } = this.props;
-
-    return (
-      <React.Fragment>
-        <div className={classes.title}>Diapositivas</div>
-        <div className="container"></div>
-      </React.Fragment>
-    );
+    return <div></div>;
   }
 }
 
-export default withStyles(styles, { withTheme: true })(PresentationMode);
+export default withStyles(styles, { withTheme: true })(imagePresentation);

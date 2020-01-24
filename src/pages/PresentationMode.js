@@ -18,6 +18,7 @@ const styles = theme => ({
     display: "grid",
     width: "95%",
     gridGap: "1.5%",
+    // gridTemplateColumns: "repeat(3,33.33333333333336%)",
     margin: "0px 15px 0px 15px"
   },
   formControl: {
@@ -115,7 +116,7 @@ class PresentationMode extends Component {
     console.log(100 / this.state.numCol);
     var numColumnas = parseInt(`${this.state.numCol}`);
     var pct = 100 / numColumnas;
-    console.log(`${numColumnas}`, `${pct}`);
+    console.log();
 
     // console.log("repeat(`${this.state.numCol}`,`${this.state.pct}%`)");
 
@@ -141,7 +142,7 @@ class PresentationMode extends Component {
           <div
             className={classes.container}
             style={{
-              gridTemplateColumns: "repeat(`${numColumnas}`, ``)"
+              gridTemplateColumns: `repeat(` + numColumnas + `,` + pct + `%)`
             }}
           >
             {obj.map((value, index, array) => {

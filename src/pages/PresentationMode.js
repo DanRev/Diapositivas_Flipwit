@@ -18,7 +18,6 @@ const styles = theme => ({
     display: "grid",
     width: "95%",
     gridGap: "1.5%",
-    // gridTemplateColumns: "repeat(3,33.33333333333336%)",
     margin: "0px 15px 0px 15px"
   },
   formControl: {
@@ -112,13 +111,8 @@ class PresentationMode extends Component {
       this.setState({ numCol: event.target.value });
     };
 
-    console.log(parseInt(`${this.state.numCol}`));
-    console.log(100 / this.state.numCol);
     var numColumnas = parseInt(`${this.state.numCol}`);
     var pct = 100 / numColumnas;
-    console.log();
-
-    // console.log("repeat(`${this.state.numCol}`,`${this.state.pct}%`)");
 
     return (
       <React.Fragment>
@@ -138,7 +132,6 @@ class PresentationMode extends Component {
           </Select>
         </FormControl>
         <div className={classes.maxContainer}>
-          {console.log(`${numColumnas}`)}
           <div
             className={classes.container}
             style={{

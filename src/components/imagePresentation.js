@@ -4,22 +4,22 @@ import { withStyles } from "@material-ui/core/styles";
 const styles = theme => ({
   title: {
     fontWeight: "bold",
-    fontSize: "12px",
+    fontSize: "25px",
     textAlign: "center",
     marginTop: ".5%"
   },
   imagePreview: {
-    width: "65%"
+    width: "65%",
+    border: "2.5px solid #000",
+    cursor: "pointer"
   },
   containerImage: {
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
+    margin: "0px 15px 0px 15px"
   },
   containerPreview: {
-    border: "2px solid #FF5722",
-    borderRadius: "10px 10px 10px 10px",
-    cursor: "pointer",
-    marginBottom:'15px',
+    marginBottom: "15px"
   }
 });
 
@@ -28,10 +28,8 @@ class imagePresentation extends Component {
     const { classes } = this.props;
     return (
       <React.Fragment>
-        <div className={classes.containerPreview} onClick={true}>
-          <div className={classes.title}>
-            {`Diapositiva ${this.props.idpreview}`}
-          </div>
+        <div className={classes.containerPreview}>
+          <div className={classes.title}>{this.props.idpreview}</div>
           <div className="childContainer">
             <figure className={classes.containerImage}>
               <img

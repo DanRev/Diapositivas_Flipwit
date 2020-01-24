@@ -5,6 +5,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import Grid from "@material-ui/core/Grid";
 
 const styles = theme => ({
   title: {
@@ -18,11 +19,12 @@ const styles = theme => ({
     display: "grid",
     width: "95%",
     gridGap: "1.5%",
-    margin: "0px 15px 0px 15px"
+    margin: "0px 0px 0px 15px"
   },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 160
+    minWidth: 160,
+    marginBottom: "35px"
   }
 });
 
@@ -116,39 +118,46 @@ class PresentationMode extends Component {
 
     return (
       <React.Fragment>
-        <FormControl className={classes.formControl}>
-          <InputLabel id="labelAge">Numero de Columnas</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={this.state.numCol}
-            onChange={handleChange}
-          >
-            <MenuItem value={1}>1</MenuItem>
-            <MenuItem value={2}>2</MenuItem>
-            <MenuItem value={3}>3</MenuItem>
-            <MenuItem value={4}>4</MenuItem>
-            <MenuItem value={5}>5</MenuItem>
-          </Select>
-        </FormControl>
-        <div className={classes.maxContainer}>
-          <div
-            className={classes.container}
-            style={{
-              gridTemplateColumns: `repeat(` + numColumnas + `,` + pct + `%)`
-            }}
-          >
-            {obj.map((value, index, array) => {
-              return (
-                <ImagePresentation
-                  key={value.idSlide}
-                  idpreview={value.idSlide}
-                  weburl={value.url}
-                />
-              );
-            })}
+        <Grid
+          container
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          style={{ minHeight: "98vh" }}
+        >
+          <FormControl className={classes.formControl}>
+            <InputLabel id="labelCol">Numero de Columnas</InputLabel>
+            <Select
+              labelId="selectLabel"
+              value={this.state.numCol}
+              onChange={handleChange}
+            >
+              <MenuItem value={1}>1</MenuItem>
+              <MenuItem value={2}>2</MenuItem>
+              <MenuItem value={3}>3</MenuItem>
+              <MenuItem value={4}>4</MenuItem>
+              <MenuItem value={5}>5</MenuItem>
+            </Select>
+          </FormControl>
+          <div className={classes.maxContainer}>
+            <div
+              className={classes.container}
+              style={{
+                gridTemplateColumns: `repeat(` + numColumnas + `,` + pct + `%)`
+              }}
+            >
+              {obj.map((value, index, array) => {
+                return (
+                  <ImagePresentation
+                    key={value.idSlide}
+                    idpreview={value.idSlide}
+                    weburl={value.url}
+                  />
+                );
+              })}
+            </div>
           </div>
-        </div>
+        </Grid>
       </React.Fragment>
     );
   }
